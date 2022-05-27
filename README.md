@@ -2,9 +2,8 @@
 
 A new Flutter project.
 
-## Getting Started
+## Code Reference & Image (Mostly inspired from the example from documentations and past lecture notes)
 
-- Code Reference (Mostly inspired from the example from documentations and past lecture notes)
     - [https://github.com/abuanwar072/Welcome-Login-Signup-Page-Flutter/blob/master/lib/components/rounded_button.dart](https://github.com/abuanwar072/Welcome-Login-Signup-Page-Flutter/blob/master/lib/components/rounded_button.dart)
     - [https://programmingwithswift.com/change-button-color-on-press-with-flutter/](https://programmingwithswift.com/change-button-color-on-press-with-flutter/)
     - [https://www.flutterbeads.com/numeric-input-keyboard-in-flutter/](https://www.flutterbeads.com/numeric-input-keyboard-in-flutter/)
