@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 //widgets
-import '../widgets/for_calculate_page/height_slider_widget.dart';
-import '../widgets/for_calculate_page/male_female_button.dart';
-import '../widgets/for_calculate_page/weight_button_widget.dart';
+import '../widgets/for_calculate_page/height_slider_widget.dart'; //height slider widget
+import '../widgets/for_calculate_page/male_female_button.dart'; //male female button widget
+import '../widgets/for_calculate_page/weight_button_widget.dart'; //weight button
 import '../widgets/change_theme_button.dart';
 
 //components -> Basically a template 
@@ -13,6 +13,7 @@ import 'result_page.dart';
 
 
 class CalculatePage extends StatefulWidget {
+  //the route of the app
   static const routeName= '/calculate';
 
   @override
@@ -48,11 +49,12 @@ class _CalculatePageState extends State <CalculatePage>{
           HeightSliderWidget(),
           //Widget for choosing weight
           WeightButtonWidget(),
-          //Imported from rounded_button on template
+          //Imported from rounded_button on template, //the navigation button from CalculatePage() to ResultPage()
           RoundedButton(
             text: 'Calculate',
             context: context,
             nextPage: ResultPage.routeName,
+            isNavigate: true,  //means the Navigation.PushNamed() is used instead of the Navigation.Pop()
           ),
         ],
       ),

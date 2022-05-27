@@ -13,6 +13,8 @@ class BMICalculator{
   //to decide the classification based on the gender
   static getBMI(bool isMale,double bmiValue)=> 
     isMale?BMICalculator.getBMIMale(bmiValue):BMICalculator.getBMIFemale(bmiValue);
+    //BMICalculator.getBMIMale(bmiValue)=> for male classification
+      //BMICalculator.getBMIFemale(bmiValue)-> for female classification
   
   //to decide the classification for female
   static getBMIFemale(double bmiValue){

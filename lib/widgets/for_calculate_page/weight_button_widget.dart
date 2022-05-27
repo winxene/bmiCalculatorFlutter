@@ -1,15 +1,13 @@
 //Here is a dart widget created for the height_slider_widget
 import 'package:flutter/material.dart';
-import 'package:midexam/components/value_unit_text.dart';
-
-//import bmi_data.dart
-import 'package:midexam/models/bmi_data.dart';
-
-
 import 'dart:async'; //for the timer
-
-//import screen_specs
+//components
+import 'package:midexam/components/value_unit_text.dart';
+import 'package:midexam/components/whitebox_widget.dart';
+  //import screen_specs
 import '../../components/screen_specs.dart';
+//import bmi_data.dart
+import '../../models/bmi_data.dart';
 
 class WeightButtonWidget extends StatefulWidget {
   @override
@@ -20,6 +18,7 @@ class _WeightButtonWidget extends State<WeightButtonWidget> {
   double weightInKg = 50;
   //ternary for setup the long press timer
   Timer? _timer;
+  //the boolean for the long press
   bool _noLongPressed= false;
   //timer to stop the rapid mode when long press
 
@@ -30,7 +29,7 @@ class _WeightButtonWidget extends State<WeightButtonWidget> {
 
   //function to increase/ decrease weight value
   void _adjustWeightValue(bool isIncrease)=> setState(() {
-    isIncrease? weightInKg++ : weightInKg--;
+    isIncrease? weightInKg++ : weightInKg--; //if it is increase, increase the value, else decrease
     BMIData.weight=weightInKg;
   });
 
@@ -48,6 +47,7 @@ class _WeightButtonWidget extends State<WeightButtonWidget> {
           child: Column(
             children: <Widget>[
               Text(
+                //will automatically display the symbol based on the boolean
                 isIncrease? '+' : '-',
                 style: const TextStyle(
                   fontSize: 16,
@@ -81,23 +81,10 @@ class _WeightButtonWidget extends State<WeightButtonWidget> {
   Widget build(BuildContext context) {
     //predefine the data, to prevent error when the user immediately press the calculate button
     BMIData.weight=weightInKg;
-    return Container( 
-      height:(ScreenSpecs.screenHeight(context) - ScreenSpecs.screenPadTop(context)) *0.2,
-      width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      padding: const EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(0, 3), // changes position of shadow
-          ),
-        ],
-      ),
+    //calling the WhiteBoxWidget that contains the container needed to be displayed on the screen
+    return WhiteBoxWidget(
+    height: (ScreenSpecs.screenHeight(context) - ScreenSpecs.screenPadTop(context)) *0.2, 
+    padding: const EdgeInsets.all(20.0),
       child: Column(
         children: <Widget>[
           const Text(
@@ -109,7 +96,7 @@ class _WeightButtonWidget extends State<WeightButtonWidget> {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -122,5 +109,5 @@ class _WeightButtonWidget extends State<WeightButtonWidget> {
         ],
       ),
     );
-}
+  }
 }

@@ -1,5 +1,6 @@
 //Here is a dart widget created for the male_or_female Slider
 import 'package:flutter/material.dart';
+import 'package:midexam/components/whitebox_widget.dart';
 
 //import screen_specs.dart
 import '../../components/screen_specs.dart';
@@ -15,7 +16,7 @@ class MaleFemaleButton extends StatefulWidget {
 class _MaleFemaleButtonState extends State<MaleFemaleButton> {
   bool isMale=true; //key variable which will be passed to the bmi_calculator, also  to prevent error when the user immediately press the calculate button
 
-  //the button state
+  //the button state for male or female
   bool _isChosenMale=true;
   bool _isChosenFemale=false;
 
@@ -23,46 +24,40 @@ class _MaleFemaleButtonState extends State<MaleFemaleButton> {
   _maleOrFemaleButton(bool isMale){
     setState(() {
       this.isMale=isMale;
-    });
-  }
-  //function to define male or female
-  dynamic _MaleFemaleSwitch(bool isMale){
-    if(isMale){
+      //save the value into the BMIData
+      BMIData.isMale=isMale;
+      //button highlight
+      if(isMale){
       _isChosenMale=true;
       _isChosenFemale=false;
-    }
-    else{
-      _isChosenMale=false;
-      _isChosenFemale=true;
-    }
+      }
+      else{
+        _isChosenMale=false;
+        _isChosenFemale=true;
+      }
+    });
   }
 
   @override
   
   Widget genderButton(String genderLabel, bool isMale, bool isToggle) => Container(
     child: ElevatedButton(
-      
       onPressed: () {
-         _maleOrFemaleButton(isMale);
-         setState(() {
-            _MaleFemaleSwitch(isMale);
-            //set value to bmi_data
-             BMIData.isMale=isMale;
-          });
+         _maleOrFemaleButton(isMale); //applying the button logic
       },
       child: Column(
         children: <Widget>[
           Icon(
             isMale?Icons.male
-              :Icons.female,
-            color: isToggle? Colors.white: Colors.black,
+              :Icons.female, //will adapt based on the gender
+            color: isToggle? Colors.white: Colors.black, //will transform when a button is being pressed
             ),
           Text(
-            genderLabel,
+            genderLabel,//will adapt based on the gender
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: isToggle? Colors.white: Colors.black,
+              color: isToggle? Colors.white: Colors.black, //will transform when a button is being pressed
             ),
           ),
         ],
@@ -78,23 +73,11 @@ class _MaleFemaleButtonState extends State<MaleFemaleButton> {
     ),
   );
 
-  Widget build(BuildContext context) => Container(
-    height:(ScreenSpecs.screenHeight(context)-ScreenSpecs.screenPadTop(context) 
-      - ScreenSpecs.screenPadBottom(context)) *0.25,
-    margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-    padding: const EdgeInsets.all(10.0),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(10),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.5),
-          spreadRadius: 5,
-          blurRadius: 7,
-          offset: const Offset(0, 3), // changes position of shadow
-        ),
-      ],
-    ),
+  Widget build(BuildContext context) => WhiteBoxWidget(
+    //calling the WhiteBoxWidget that contains the container needed to be displayed on the screen
+    height: (ScreenSpecs.screenHeight(context)-ScreenSpecs.screenPadTop(context) 
+      - ScreenSpecs.screenPadBottom(context)) *0.25, 
+    padding: const EdgeInsets.all(10),
     child: Center(
       child: Column(
         children: <Widget> [

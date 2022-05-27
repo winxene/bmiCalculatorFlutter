@@ -6,25 +6,28 @@ class RoundedButton extends StatelessWidget {
   final String text;
   final BuildContext context; //to get the context
   final String nextPage; //to insert the route
-  //bikin datanya represent pakai keys
+  final bool isNavigate; //to check if the button is for navigation, 0 value means that it returns to the home page.
+
   RoundedButton({
     required this.text,
     required this.context,
     required this.nextPage,
-  });
+    required this.isNavigate,
+  });//constructor
 
   @override
   Widget build(BuildContext context){
-    final marginUwU= EdgeInsets.symmetric(vertical: 10); //basically defining the margin object
+    const marginUwU= EdgeInsets.symmetric(vertical: 10); //basically defining the margin object
     return Container(
       margin: marginUwU,
-      width: ScreenSpecs.screenWidth(context) * 0.8,
+      width: ScreenSpecs.screenWidth(context) * 0.8, //to make the button fit the screen
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
-        child: newElevatedButton(),
+        borderRadius: BorderRadius.circular(30), //to make the button round
+        child: newElevatedButton(), //to create the button
       ),
     );
   }
+  //to specify the button
   Widget newElevatedButton()=> ElevatedButton(
     child: Text(
       text,
@@ -33,8 +36,9 @@ class RoundedButton extends StatelessWidget {
         fontWeight: FontWeight.bold
       ),
     ),
-    onPressed: ()=> Navigator.of(context).pushNamed(nextPage), 
     style: ElevatedButton.styleFrom(
           padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),),
-    );
+    onPressed: ()=> isNavigate?Navigator.of(context).pushNamed(nextPage)//to navigate to the next page
+      :Navigator.pop(context), //to return to the home page, very important to prevent multiple state being created
+  );  
 }

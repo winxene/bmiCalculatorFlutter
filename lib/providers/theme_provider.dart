@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//to set the photo theme
+import '../models/bmi_data.dart';
+
+
 
 class ThemeProvider extends ChangeNotifier {
   ThemeMode themeMode = ThemeMode.system;
   //logic to trigger dark ode
   bool get isDarkMode {
     if (themeMode == ThemeMode.system) {
-      final brightness = SchedulerBinding.instance?.window.platformBrightness;
+      final brightness = SchedulerBinding.instance.window.platformBrightness;
       return brightness == Brightness.dark;
     } else {
       return themeMode == ThemeMode.dark;
@@ -17,6 +21,7 @@ class ThemeProvider extends ChangeNotifier {
 
   void toggleTheme(bool isOn) {
     themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
+    BMIData.isDarkMode=isOn;
     //playing with the theme using the themeMode
     notifyListeners();
   }
@@ -37,3 +42,4 @@ class AvailableTheme {
         iconTheme: const IconThemeData(color:Colors.black, opacity: 0.8),
   );
 }
+

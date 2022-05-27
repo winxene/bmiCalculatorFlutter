@@ -3,8 +3,6 @@
 
 import 'package:flutter/material.dart';
 
-//to use the keyboard
-import 'package:flutter/services.dart';
 
 class ValueUnit extends StatefulWidget {
 
@@ -15,7 +13,8 @@ class ValueUnit extends StatefulWidget {
   ValueUnit({
     required this.labelValue, 
     required this.unit
-  });
+  });//constructor
+
   State createState() => _ValueUnit();
 }
 
@@ -25,17 +24,9 @@ class _ValueUnit extends State <ValueUnit>{
     var labelValue= ValueUnit(
       labelValue: widget.labelValue,
       unit: widget.unit,
-    );
+    ); //create a new object to prevent error when the user immediately press the calculate button
     return Container (
       //make the text become clickable, to allow manual input
-      child: TextButton(
-        onPressed: (){
-          TextField(
-            keyboardType: TextInputType.numberWithOptions(decimal: true),
-            inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[0-9.,]'))]
-            
-          );
-        },
         child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget> [
@@ -56,7 +47,6 @@ class _ValueUnit extends State <ValueUnit>{
           ),
         ],
       ),
-      )
     );
   }
 }

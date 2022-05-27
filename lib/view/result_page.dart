@@ -26,6 +26,7 @@ class ResultPage extends StatelessWidget {
      bmiStatus=='Normal'? 'You are in the ideal range' :
      bmiStatus=='Overweight'? 'You are Overweight':
      'You are Obese';
+    final imageLocation=BMIData.isDarkMode?'assets/images/bmi_logo_dark.png': 'assets/images/bmi_logo.png';
     return Scaffold(
       appBar: AppBar(
         title: const Center(
@@ -53,11 +54,15 @@ class ResultPage extends StatelessWidget {
                   ),
             ),
             //The widget to display the result as a card
+            Image.asset(imageLocation),
             ResultBox(classification: bmiStatus, bmiValue: bmiValue, message: bmiMessage),
+            //Imported from rounded_button on template, the navigation button from ResultPage() back to CalculatePage()
             RoundedButton(
               text: 'Recalculate', 
               context: context,
-              nextPage: CalculatePage.routeName)
+              nextPage: CalculatePage.routeName,
+              isNavigate: false, //means the Navigation.PushNamed() is used instead of the Navigation.Pop()
+            )
           ],
         )
       ),
