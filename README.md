@@ -4,13 +4,12 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Code Reference (Mostly inspired from the example from documentations and past lecture notes)
+    - [https://github.com/abuanwar072/Welcome-Login-Signup-Page-Flutter/blob/master/lib/components/rounded_button.dart](https://github.com/abuanwar072/Welcome-Login-Signup-Page-Flutter/blob/master/lib/components/rounded_button.dart)
+    - [https://programmingwithswift.com/change-button-color-on-press-with-flutter/](https://programmingwithswift.com/change-button-color-on-press-with-flutter/)
+    - [https://www.flutterbeads.com/numeric-input-keyboard-in-flutter/](https://www.flutterbeads.com/numeric-input-keyboard-in-flutter/)
+    - [https://www.youtube.com/watch?time_continue=36&v=WhVXkCFPmK4&feature=emb_title](https://www.youtube.com/watch?time_continue=36&v=WhVXkCFPmK4&feature=emb_title)
+    - [https://stackoverflow.com/questions/68924490/increase-counter-faster-when-long-pressed-but-after-a-delay-in-flutter](https://stackoverflow.com/questions/68924490/increase-counter-faster-when-long-pressed-but-after-a-delay-in-flutter)
+    - [https://api.flutter.dev/flutter/material/TextButton-class.html](https://api.flutter.dev/flutter/material/TextButton-class.html)
+    - [https://github.com/JohannesMilke/theme_example](https://github.com/JohannesMilke/theme_example)
+- The image is taken from [Undraw.co](http://Undraw.co) that provides free non-license image.
