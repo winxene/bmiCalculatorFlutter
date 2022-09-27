@@ -1,6 +1,6 @@
-# midexam
+# BMI Calculator Flutter
 
-A new Flutter project.
+A flutter project for portfolio.
 
 ## Code Reference & Image (Mostly inspired from the example from documentations and past lecture notes)
 
